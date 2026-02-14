@@ -1,1 +1,102 @@
-<p>index.html</p> mi futura mujer 💖</p>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Galaxy of Love</title>
+
+<style>
+body{
+    margin:0;
+    padding:0;
+    background: radial-gradient(circle at center, #14001f, #000000);
+    color:white;
+    font-family: Arial, sans-serif;
+    text-align:center;
+    overflow:hidden;
+}
+
+/* Título principal */
+h1{
+    font-size:50px;
+    margin-top:80px;
+    animation: glow 2s infinite alternate;
+}
+
+p{
+    font-size:24px;
+}
+
+/* Efecto brillo */
+@keyframes glow{
+    from{ text-shadow:0 0 10px #ff00cc;}
+    to{ text-shadow:0 0 30px #ff66ff;}
+}
+
+/* Corazones */
+.heart{
+    position:absolute;
+    color:#ff4da6;
+    animation: float linear infinite;
+}
+
+@keyframes float{
+    from{transform:translateY(100vh);}
+    to{transform:translateY(-10vh);}
+}
+
+/* Estrellas */
+.star{
+    position:absolute;
+    width:2px;
+    height:2px;
+    background:white;
+    border-radius:50%;
+    animation: twinkle 2s infinite alternate;
+}
+
+@keyframes twinkle{
+    from{opacity:0.3;}
+    to{opacity:1;}
+}
+</style>
+</head>
+
+<body>
+
+<!-- ✏️ CAMBIA AQUÍ LOS TEXTOS -->
+<h1>la quiero mucho🫶🏼</h1>
+<p>Esmeralda </p>
+<p></p> mi futura mujer 💖</p>
+
+<script>
+// Crear estrellas
+for(let i=0; i<80; i++){
+    const star = document.createElement("div");
+    star.classList.add("star");
+    star.style.left = Math.random() * 100 + "vw";
+    star.style.top = Math.random() * 100 + "vh";
+    star.style.animationDuration = (Math.random()*2+1) + "s";
+    document.body.appendChild(star);
+}
+
+// Crear corazones
+function createHeart(){
+    const heart = document.createElement("div");
+    heart.classList.add("heart");
+    heart.innerHTML = "❤";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.fontSize = (Math.random() * 20 + 15) + "px";
+    heart.style.animationDuration = (Math.random() * 3 + 3) + "s";
+    document.body.appendChild(heart);
+
+    setTimeout(() => {
+        heart.remove();
+    }, 6000);
+}
+
+setInterval(createHeart, 300);
+</script>
+
+</body>
+</html>
